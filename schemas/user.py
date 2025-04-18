@@ -12,7 +12,9 @@ class UserType(str, Enum):
 class UserCreate(BaseModel):
     name: str
     phone: str
+    password: str
     user_type: UserType
+
 
 class UserOut(BaseModel):
     id: UUID
@@ -23,3 +25,8 @@ class UserOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+class UserLogin(BaseModel):
+    phone: str
+    password: str
+
